@@ -17,22 +17,27 @@ Create Listing
 
     <div class="form-group">
         <label for="title_input">Title</label>
-        <input class="form-control" type="text" id="title_input">
+        <input class="form-control" type="text" id="title_input" name="title">
     </div>
 
     <div class="form-group">
         <label for="description_input">Description</label>
-        <textarea class="form-control" id="description_input"></textarea>
+        <textarea class="form-control" id="description_input" name="description"></textarea>
     </div>
 
     <div class="form-group">
         <label for="bid_input">Starting bid in INR</label>
-        <input class="form-control" id="bid_input" type="number">
+        <input class="form-control" id="bid_input" type="number" name="bid">
     </div>
 
     <div class="form-group">
         <label for="image_input">Image URL</label>
-        <input class="form-control" id="image_input" type="url">
+        <input class="form-control" id="image_input" type="url" name="imgurl">
+    </div>
+
+    <div class="form-group">
+        <label for="category_input">Category</label>
+        <input class="form-control" type="text" id="category_input" name="category">
     </div>
     
     <button class="btn btn-primary" type="submit">Submit</button>
