@@ -1,4 +1,33 @@
 {% extends "auctions/layout.html" %}
-{% block body %}
 
+{% block body %}
+    <!-- To display:
+        1. Title of listing
+        2. Text based description
+        3. Starting bid
+        4. Image URL
+        5. Category: fashion/toys/electronics/furniture etc.
+    -->
+    {% if listing %}
+        <div class="card">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    {% if listing.imgurl and listing.imgurl.strip %}
+                        <img src="{{ listing.imgurl }}" class="card-img card-img-heightfix" alt="image of {{ listing.title }}">
+                    {% endif %}
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h4 class="card-title">{{ listing.title }}</h5>
+                        <h2 class="card-subtitle mb-4">₹{{ listing.bid }}</h4>
+                        <p class="card-text">{{ listing.description }}</p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <p>No listing with that id found :(</p>
+    {% endif %}
 {% endblock %}
+

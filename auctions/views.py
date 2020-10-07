@@ -88,7 +88,11 @@ def create_listing(request):
         return render(request, "auctions/create_listing.html")
 
 def listing_view(request, id):
-    listing = Listing.objects.get(id=id)
-    return render(request, "auctions/listing.html", {
-        "listing" : listing
-    })
+    try:
+        listing = Listing.objects.get(id=id)
+        return render(request, "auctions/listing.html", {
+            "listing" : listing
+        })
+    except Listing.DoesNotExist:
+        return render(request, "auctions/listing.html")
+        

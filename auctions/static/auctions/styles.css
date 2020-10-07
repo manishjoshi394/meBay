@@ -27,9 +27,19 @@ configures diplay size of images in lising cards
 https://stackoverflow.com/questions/52871316/how-to-make-bootstraps-card-img-top-equal-height-at-responsive-widths
 https://stackoverflow.com/questions/37287153/how-to-get-images-in-bootstraps-card-to-be-the-same-height-width
 */
-.card-img-top {
+.card-img-top-heightfix {
     width: 100%;
     height: 15vw;
+    object-fit: contain;
+    min-height: 150px;
+}
+
+/*
+limit height of card image, supposted to be used in specific listing page which has only one big card
+*/
+.card-img-heightfix {
+    width: 100%;
+    height: 40vw;
     object-fit: contain;
     min-height: 150px;
 }

@@ -8,7 +8,7 @@
           <div class="card h-100 box-shadow-hover pointer">
               
               {% if listing.imgurl and listing.imgurl.strip %}
-                  <img class="card-img-top" src="{{ listing.imgurl }}" alt="Card image cap">
+                  <img class="card-img-top card-img-top-heightfix" src="{{ listing.imgurl }}" alt="Image of {{ listing.title }}">
               {% endif %}
               <!--d-flex flex-column and mt-auto added from here 
                 for keeping "Details" to the bottom left, i dont' understand shit in html but this works for now
