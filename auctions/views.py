@@ -8,7 +8,9 @@ from .models import User, Listing
 
 
 def index(request):
-    return render(request, "auctions/index.html")
+    return render(request, "auctions/index.html", {
+        "listings" : Listing.objects.all()
+    })
 
 def login_view(request):
     if request.method == "POST":
@@ -76,9 +78,17 @@ def create_listing(request):
         bid = request.POST["bid"]
         imgurl = request.POST["imgurl"]
         category = request.POST["category"]
+        
+        # warning: do validation
 
-        listing = Listing(title=title, desciption=description, bid=bid, imgurl=imgurl, category=category)
+        listing = Listing(title=title, description=description, bid=bid, imgurl=imgurl, category=category)
         listing.save()
         return HttpResponseRedirect(reverse("index"))
     else:
         return render(request, "auctions/create_listing.html")
+
+def listing_view(request, id):
+    listing = Listing.objects.get(id=id)
+    return render(request, "auctions/listing.html", {
+        "listing" : listing
+    })

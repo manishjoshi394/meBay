@@ -2,6 +2,37 @@
 
 {% block body %}
     <h2>Active Listings</h2>
+    <div class="row row-cols-1 row-cols-sm-4">
+    {% for listing in listings %}
+        <div class="col mb-4">
+          <div class="card h-100 box-shadow-hover pointer">
+              
+              {% if listing.imgurl and listing.imgurl.strip %}
+                  <img class="card-img-top w-25" src="{{ listing.imgurl }}" alt="Card image cap">
+              {% endif %}
+              <!--d-flex flex-column and mt-auto added from here 
+                for keeping "Details" to the bottom left, i dont' understand shit in html but this works for now
+
+                https://stackoverflow.com/questions/48406628/bootstrap-align-button-to-the-bottom-of-card
+              -->
+              
+              <div class="card-body d-flex flex-column">
+
+                <h5 class="card-title">{{ listing.title }}</h5>
+
+                <h6 class="card-subtitle mb-2 text-muted">Price: {{ listing.bid }} INR</h6>
+
+
+                <p class="card-text">{{ listing.description }}</p>
+
+                <div class="text-right mt-auto">
+                  <a href="{% url 'listing' id=listing.id %}" class="stretched-link">Details</a>
+                </div>
+
+              </div>
+          </div>
+        </div>
+    {% endfor %}
+    </div>
     
-    TODO
 {% endblock %}

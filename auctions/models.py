@@ -11,7 +11,7 @@ class Listing(models.Model):
         4. Image URL
         5. Category: fashion/toys/electronics/furniture etc.'''
     title = models.CharField(max_length=30)
-    desciption = models.TextField()
+    description = models.TextField()
     bid = models.IntegerField()
     imgurl = models.URLField()
     category = models.CharField(max_length=30)
